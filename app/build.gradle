@@ -6,7 +6,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
-
+    flavorDimensions "default"
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdkVersion 16
@@ -15,6 +15,22 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    productFlavors{
+        dev{
+            applicationIdSuffix ".dev"
+            resValue "string","app_name","App-Dev"
+            buildConfigField "String","API_BASE_URL","\"http://dev.abc.com/\""
+         }
+        qa{
+            applicationIdSuffix ".qa"
+            resValue "string","app_name","App-Qa"
+            buildConfigField "String","API_BASE_URL","\"http://qa.abc.com/\""
+        }
+        prod{
+            resValue "string","app_name","App-Prod"
+            buildConfigField "String","API_BASE_URL","\"http://abc.com/\""
+        }
     }
 
     buildTypes {
