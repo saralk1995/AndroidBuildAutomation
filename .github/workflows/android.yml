@@ -20,4 +20,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build Android Application
-      run: ./gradlew build
+      run: ./gradlew buildDevDebug
